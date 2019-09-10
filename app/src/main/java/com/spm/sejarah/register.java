@@ -3,24 +3,31 @@ package com.spm.sejarah;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.Button;
 
-public abstract class register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+public abstract class register extends AppCompatActivity {
+
+
+    private Button d;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Spinner spinner = findViewById(R.id.spinner1);
-        Context context;
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.role, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+
+        d= (Button) findViewById(R.id.btnsignup);
+        d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(register.this,menupage.class);
+                startActivity(i); }
+        });
+
+
     }
 }

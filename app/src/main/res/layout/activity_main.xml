@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!--suppress AndroidDomInspection -->
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,113 +14,43 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/username"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="302dp"
-            android:background="#A9A9A9"
-            android:drawableLeft="@drawable/ic_person_white_24dp"
-            android:drawablePadding="12dp"
-            android:ems="10"
-            android:inputType="textPersonName|textEmailAddress"
-            android:maxLines="1"
-            android:padding="8dp"
-            android:text="Username"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="374dp"
-            android:background="#00CED1"
-            android:drawableLeft="@drawable/ic_lock_white_24dp"
-            android:drawablePadding="12dp"
-            android:ems="10"
-            android:hint="PASSWORD"
-            android:inputType="textPassword"
-            android:maxLines="1"
-            android:padding="8dp"
-            android:text="PASSWORD"
-            android:textColorHint="#000000" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="227dp"
-            android:layout_height="182dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="91dp"
-            android:layout_marginLeft="91dp"
-            android:layout_marginTop="47dp"
-            android:layout_marginEnd="93dp"
-            android:layout_marginRight="93dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.066"
-            app:srcCompat="@drawable/logo10" />
 
         <Button
-            android:id="@+id/btnlogin"
+            android:id="@+id/lbtnAdmin"
             android:layout_width="196dp"
             android:layout_height="79dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="496dp"
-            android:background="#00CED1"
-            android:text="LOG IN" />
+            android:layout_marginStart="98dp"
+            android:layout_marginLeft="98dp"
+            android:layout_marginTop="461dp"
+            android:text="Admin" />
 
-        <EditText
-            android:id="@+id/signuplink"
-            android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btnlogin"
+        <Button
+            android:id="@+id/lbtnTeacher"
+            android:layout_width="196dp"
+            android:layout_height="79dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="590dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Don't have an account? Sign Up. " />
+            android:layout_marginStart="96dp"
+            android:layout_marginLeft="96dp"
+            android:layout_marginTop="330dp"
+            android:text="Teacher" />
 
-        <EditText
-            android:id="@+id/forgetpwlink"
-            android:layout_width="202dp"
-            android:layout_height="50dp"
+        <Button
+            android:id="@+id/lbtnStudent"
+            android:layout_width="196dp"
+            android:layout_height="79dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
-            android:layout_marginTop="432dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Forget password? Click here!"
-            android:textSize="14sp" />
+            android:layout_marginStart="92dp"
+            android:layout_marginLeft="92dp"
+            android:layout_marginTop="202dp"
+            android:text="Student" />
 
     </RelativeLayout>
-
 </ScrollView>
 

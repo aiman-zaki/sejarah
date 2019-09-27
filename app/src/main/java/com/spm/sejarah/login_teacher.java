@@ -3,6 +3,7 @@ package com.spm.sejarah;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,13 +16,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class login_teacher extends AppCompatActivity  {
+public class login_teacher extends AppCompatActivity
+{
 
     EditText pwteacher,icteacher;
     Button loginteacher;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_teacher);
 
@@ -34,18 +37,15 @@ public class login_teacher extends AppCompatActivity  {
         //init firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference table_teacher = database.getReference("teacher");
-}
+    }
 
-    loginteacher.setOnClickListener ((view))
+    loginteacher.setOnClickListener(new View.OnClickListener)
     {
 
-        if(!validateUername() | validatePassword ())
-        {
-            return;
-        }
+       /*
         final ProgressDialog mDialog = new ProgressDialog (login_teacher.this);
         mDialog.setMessage("Loading...");
-        mDialog.show();
+        mDialog.show();*/
 
         table_teacher.addValueEventListener (new ValueEventListener()
         {
@@ -54,12 +54,12 @@ public class login_teacher extends AppCompatActivity  {
             {
 
                 //check if customer not exist in database
-                if (dataSnapshot.child(icteacher.getText().toString().exists())
+                if (dataSnapshot.child(icteacher.getText().toString()).exists())
                 {
                     //get user information
 
-                    mDialog.dismiss();
-                    teacher teach = dataSnapshot.child (icteacher.getText().toString().getValue(teacher.class));
+                    //mDialog.dismiss();
+                    teacher teach = dataSnapshot.child (icteacher.getText().toString()).getValue(teacher.class);
                     if (teach.getTeachPw().equals(pwteacher.getText().toString()))
                     {
                         Toast.makeText(login_teacher.this, "Login succesfuly", Toast.LENGTH_SHORT).show();
@@ -68,16 +68,19 @@ public class login_teacher extends AppCompatActivity  {
                     }
                     else
                     {
-                        mDialog.dismiss();
-                        Toast.makeText(login_teacher.this, "Account does not exist.", Toast.LENGTH_SHORT).show();
+                        //mDialog.dismiss();
+                        Toast.makeText(login_teacher.this, "Login failed.", Toast.LENGTH_SHORT).show();
                     }
 
 
+                 } else
+                {
+                    Toast.makeText(login_teacher.this, "Account does not exist.", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
-        }
 
-
-     }
-}
+        });
+    }
 }

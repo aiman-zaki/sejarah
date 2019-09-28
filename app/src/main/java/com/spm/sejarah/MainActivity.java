@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         a= (Button) findViewById(R.id.lbtnAdmin);
-        a.setOnClickListener(new View.OnClickListener() {
+        /*a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,login_admin.class);
                 startActivity(i); }
-        });
+        });*/
 
 
         b= (Button) findViewById(R.id.lbtnTeacher);
@@ -36,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        c= (Button) findViewById(R.id.lbtnStudent);
+        /*c= (Button) findViewById(R.id.lbtnStudent);
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,login_student.class);
                 startActivity(i); }
-        });
+        });*/
 
 
 }}

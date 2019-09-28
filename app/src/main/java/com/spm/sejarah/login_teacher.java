@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
@@ -21,6 +22,8 @@ public class login_teacher extends AppCompatActivity
 
     EditText pwteacher,icteacher;
     Button loginteacher;
+    DatabaseReference table_teacher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -30,22 +33,13 @@ public class login_teacher extends AppCompatActivity
 
         icteacher = (EditText) findViewById(R.id.pwTeacher);
         pwteacher = (EditText) findViewById(R.id.pwTeacher);
-        loginteacher = (Button) findViewById(R.id.btnLoginT);
+        loginteacher = findViewById(R.id.btnLoginT);
 
         teacher teach = new teacher();
 
         //init firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference table_teacher = database.getReference("teacher");
-    }
-
-    loginteacher.setOnClickListener(new View.OnClickListener)
-    {
-
-       /*
-        final ProgressDialog mDialog = new ProgressDialog (login_teacher.this);
-        mDialog.setMessage("Loading...");
-        mDialog.show();*/
+        table_teacher = database.getReference("teacher");
 
         table_teacher.addValueEventListener (new ValueEventListener()
         {
@@ -73,14 +67,28 @@ public class login_teacher extends AppCompatActivity
                     }
 
 
-                 } else
+                } else
                 {
                     Toast.makeText(login_teacher.this, "Account does not exist.", Toast.LENGTH_SHORT).show();
                 }
 
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        loginteacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
 
         });
+
+
     }
+
 }

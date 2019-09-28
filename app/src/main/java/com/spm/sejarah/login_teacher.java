@@ -2,6 +2,7 @@ package com.spm.sejarah;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,12 +42,27 @@ public class login_teacher extends AppCompatActivity
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         table_teacher = database.getReference("teacher");
 
+
+
+        loginteacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser();
+            }
+
+        });
+
+
+    }
+
+    void loginUser(){
         table_teacher.addValueEventListener (new ValueEventListener()
         {
 
             public void onDataChange (@NonNull DataSnapshot dataSnapshot)
             {
-
+                System.out.println(dataSnapshot);
+                System.out.println(icteacher.getText().toString());
                 //check if customer not exist in database
                 if (dataSnapshot.child(icteacher.getText().toString()).exists())
                 {
@@ -79,16 +95,6 @@ public class login_teacher extends AppCompatActivity
 
             }
         });
-
-        loginteacher.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-
-        });
-
-
     }
 
 }

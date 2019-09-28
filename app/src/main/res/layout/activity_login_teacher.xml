@@ -45,15 +45,14 @@
             android:layout_marginStart="72dp"
             android:layout_marginLeft="72dp"
             android:layout_marginTop="374dp"
-            android:background="#000000"
+            android:background="#00CED1"
             android:drawableLeft="@drawable/ic_lock_white_24dp"
             android:drawablePadding="12dp"
             android:ems="10"
-            android:hint="PASSWORD"
+            android:hint="Password"
             android:inputType="textPassword"
             android:maxLines="1"
             android:padding="8dp"
-            android:text="PASSWORD"
             android:textColorHint="#000000" />
 
         <ImageView
@@ -90,18 +89,6 @@
             android:background="#00CED1"
             android:text="LOG IN" />
 
-        <Button
-            android:id="@+id/btnRegisterT"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="206dp"
-            android:layout_marginLeft="206dp"
-            android:layout_marginTop="499dp"
-            android:background="#00CED1"
-            android:text="Register" />
 
         <EditText
             android:id="@+id/signuplink"

@@ -1,6 +1,5 @@
 package com.spm.sejarah;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,9 +30,10 @@ public class login_teacher extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_teacher);
 
-        icteacher = (EditText) findViewById(R.id.pwTeacher);
+        icteacher = (EditText) findViewById(R.id.usernameTeacher);
         pwteacher = (EditText) findViewById(R.id.pwTeacher);
         loginteacher = findViewById(R.id.btnLoginT);
+
 
         teacher teach = new teacher();
 

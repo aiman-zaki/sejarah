@@ -31,7 +31,7 @@
             android:inputType="textPersonName|textEmailAddress"
             android:maxLines="1"
             android:padding="8dp"
-            android:text="Username"
+            android:hint="Username"
             android:textColor="#000000"
             android:textStyle="bold" />
 

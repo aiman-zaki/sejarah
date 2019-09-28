@@ -2,7 +2,6 @@ package com.spm.sejarah;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ public class login_teacher extends AppCompatActivity
 
     EditText pwteacher,icteacher;
     Button loginteacher;
-    DatabaseReference table_teacher;
+
 
 
     @Override
@@ -31,20 +30,54 @@ public class login_teacher extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_teacher);
 
+
         icteacher = (EditText) findViewById(R.id.usernameTeacher);
         pwteacher = (EditText) findViewById(R.id.pwTeacher);
-        loginteacher = findViewById(R.id.btnLoginT);
+        loginteacher = (Button) findViewById(R.id.btnLoginT);
 
 
-        teacher teach = new teacher();
+
 
         //init firebase
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        table_teacher = database.getReference("teacher");
-
-
+        final DatabaseReference table_teach = database.getReference("teacher");
 
         loginteacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                table_teach.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.child(icteacher.getText().toString()).exists()){
+                            teacher teach = dataSnapshot.child(icteacher.getText().toString()).getValue(teacher.class);
+                            if(teach.getTeachPw().equals(pwteacher.getText().toString())){
+                                Toast.makeText(login_teacher.this, "Login success", Toast.LENGTH_SHORT).show();
+                                Intent i = new Intent(login_teacher.this, menupageteacher.class);
+                                startActivity(i);
+                            }
+                            else
+                            {
+                                Toast.makeText(login_teacher.this, "Login failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(login_teacher.this, "user not exist", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+            }
+        });
+
+
+
+        /*loginteacher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 loginUser();
@@ -94,7 +127,7 @@ public class login_teacher extends AppCompatActivity
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        });
+        });*/
     }
 
 }

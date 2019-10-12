@@ -6,7 +6,7 @@ xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context=".listkelas"
-android:background="@drawable/bg1">
+android:background="@drawable/bgmenu">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@ android:background="@drawable/bg1">
             android:layout_marginTop="50dp"
             android:layout_marginEnd="80dp"
             android:layout_marginRight="80dp"
-            app:srcCompat="@drawable/logobetul" />
+            app:srcCompat="@drawable/logo2" />
 
         <TextView
             android:id="@+id/textView"
@@ -33,58 +33,58 @@ android:background="@drawable/bg1">
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="58dp"
-            android:layout_marginLeft="58dp"
-            android:layout_marginTop="215dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="210dp"
             android:text="SENARAI KELAS"
-            android:textColor="#000000"
-            android:textSize="33sp"
+            android:textColor="#fff"
+            android:textSize="35sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="102dp" />
 
         <Button
-            android:id="@+id/btnkelasa"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:id="@+id/btnkelasA"
+            android:layout_width="210dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="59dp"
-            android:layout_marginLeft="59dp"
-            android:layout_marginTop="315dp"
-            android:background="#00CED1"
+            android:layout_marginStart="67dp"
+            android:layout_marginLeft="67dp"
+            android:layout_marginTop="301dp"
+            android:background="@drawable/button_round"
             android:text="KELAS A"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnkelasb"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="210dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="64dp"
-            android:layout_marginLeft="64dp"
-            android:layout_marginTop="435dp"
-            android:background="#00CED1"
+            android:layout_marginStart="68dp"
+            android:layout_marginLeft="68dp"
+            android:layout_marginTop="438dp"
+            android:background="@drawable/button_round"
             android:text="KELAS B"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnkelasc"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginLeft="68dp"
-            android:layout_marginTop="555dp"
-            android:background="#00CED1"
+            android:layout_marginStart="74dp"
+            android:layout_marginLeft="74dp"
+            android:layout_marginTop="578dp"
+            android:background="@drawable/button_round"
             android:text="KELAS C"
             android:textSize="30sp"
             android:textStyle="bold" />

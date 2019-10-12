@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menupage"
-    android:background="@drawable/bg1">
+    android:background="@drawable/bgmenu">
 
     <LinearLayout
         android:orientation="vertical"
@@ -30,13 +30,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logobetul" />
+                app:srcCompat="@drawable/logo2" />
 
         </RelativeLayout>
 
         <GridLayout
             android:columnCount="1"
-            android:rowCount="3"
+            android:rowCount="4"
             android:alignmentMode="alignMargins"
             android:columnOrderPreserved="false"
             android:layout_width="match_parent"
@@ -47,16 +47,18 @@
                 android:layout_width="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="1dp"
+                app:cardCornerRadius="50dp"
+                android:layout_margin="30dp"
+                android:background="#E6E6FA">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="#D8BFD8">
 
                     <ImageView
                         android:id="@+id/imgnotes"
@@ -69,14 +71,17 @@
 
                     <TextView
                         android:id="@+id/btnnota"
-                        android:layout_width="149dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:background="#00CED1"
-                        android:text="NOTA"
-                        android:textSize="50sp"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginLeft="75dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="75dp"
+                        android:layout_marginRight="75dp"
+                        android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.56" />
+                        app:layout_constraintHorizontal_bias="0.56"
+                        android:text="NOTA"/>
 
 
                 </LinearLayout>
@@ -87,16 +92,63 @@
                 android:layout_width="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="1dp"
+                app:cardCornerRadius="50dp"
+                android:layout_margin="30dp"
+                android:background="#E6E6FA">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="16dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="#D8BFD8">
+
+                    <ImageView
+                        android:id="@+id/imgaddnotes"
+                        android:layout_width="145dp"
+                        android:layout_height="95dp"
+                        android:layout_marginTop="56dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                        app:srcCompat="@drawable/addnotes" />
+
+                    <TextView
+                        android:id="@+id/btnaddnota"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginLeft="75dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="75dp"
+                        android:layout_marginRight="75dp"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.56"
+                        android:text="NOTA TAMBAHAN"/>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="1dp"
+                app:cardCornerRadius="50dp"
+                android:layout_margin="30dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:orientation="vertical"
+                    android:background="#D8BFD8">
 
                     <ImageView
                         android:id="@+id/imgquiz"
@@ -116,9 +168,8 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="75dp"
                         android:layout_marginRight="75dp"
-                        android:background="#00CED1"
                         android:text="QUIZ"
-                        android:textSize="50sp"
+                        android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.56"/>
                 </LinearLayout>
@@ -130,16 +181,17 @@
                 android:layout_width="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="1dp"
+                app:cardCornerRadius="50dp"
+                android:layout_margin="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:background="#D8BFD8">
 
                     <ImageView
                         android:id="@+id/imgcarta"
@@ -161,14 +213,15 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="75dp"
                         android:layout_marginRight="75dp"
-                        android:background="#00CED1"
                         android:text="CARTA"
-                        android:textSize="50sp"
+                        android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.56" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+
 
         </GridLayout>
     </LinearLayout>

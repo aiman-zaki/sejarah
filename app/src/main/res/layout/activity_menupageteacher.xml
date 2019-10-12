@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menupage"
-    android:background="@drawable/bg1">
+    android:background="@drawable/bgmenu">
 
     <LinearLayout
         android:orientation="vertical"
@@ -30,7 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logobetul" />
+                app:srcCompat="@drawable/logo2" />
 
         </RelativeLayout>
 
@@ -47,18 +47,67 @@
                 android:layout_width="wrap_content"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                app:cardElevation="6dp"
-                app:cardCornerRadius="12dp"
-                android:layout_margin="12dp">
+                app:cardElevation="1dp"
+                app:cardCornerRadius="50dp"
+                android:layout_margin="30dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:padding="16dp"
-                    android:orientation="vertical">
+                    android:background="#D8BFD8">
+
 
                     <ImageView
+                        android:id="@+id/imgnotat"
+                        android:layout_width="145dp"
+                        android:layout_height="95dp"
+                        android:layout_marginTop="56dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                        app:srcCompat="@drawable/notes" />
+
+                    <TextView
+                        android:id="@+id/btnnotat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:layout_marginStart="75dp"
+                        android:layout_marginLeft="75dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginEnd="75dp"
+                        android:layout_marginRight="75dp"
+                        android:text="NOTA"
+                        android:textSize="30sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.56"
+                        android:textColor="#000000"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                app:cardElevation="1dp"
+                app:cardCornerRadius="50dp"
+                android:layout_margin="30dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="#D8BFD8">
+
+
+                <ImageView
                         android:id="@+id/imgcartat"
                         android:layout_width="145dp"
                         android:layout_height="95dp"
@@ -78,11 +127,11 @@
                         android:layout_marginTop="12dp"
                         android:layout_marginEnd="75dp"
                         android:layout_marginRight="75dp"
-                        android:background="#00CED1"
                         android:text="CARTA"
-                        android:textSize="50sp"
+                        android:textSize="30sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.56"/>
+                        app:layout_constraintHorizontal_bias="0.56"
+                        android:textColor="#000000"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

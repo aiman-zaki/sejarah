@@ -7,15 +7,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".menupage"
-    android:background="@drawable/test1">
+    android:background="@drawable/bg1"
+    app:cardCornerRadius="10dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
-        <Button
+        <!--   <Button
             android:id="@+id/lbtnAdmin"
             android:layout_width="196dp"
             android:layout_height="79dp"
@@ -25,30 +25,54 @@
             android:layout_marginStart="98dp"
             android:layout_marginLeft="98dp"
             android:layout_marginTop="461dp"
-            android:text="Admin" />
+            android:text="Admin"
+            android:background="@drawable/button_rectangle"/> -->
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="118dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="118dp"
+            android:layout_marginLeft="118dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="112dp"
+            android:layout_marginRight="112dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.066"
+            app:srcCompat="@drawable/logo2" />
 
         <Button
             android:id="@+id/lbtnTeacher"
-            android:layout_width="196dp"
+            android:layout_width="150dp"
             android:layout_height="79dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="96dp"
-            android:layout_marginLeft="96dp"
-            android:layout_marginTop="330dp"
+            android:layout_marginStart="214dp"
+            android:layout_marginLeft="214dp"
+            android:layout_marginTop="546dp"
+            android:background="@drawable/button_rectangle"
             android:text="Teacher" />
 
         <Button
             android:id="@+id/lbtnStudent"
-            android:layout_width="196dp"
+            android:layout_width="150dp"
             android:layout_height="79dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="92dp"
-            android:layout_marginLeft="92dp"
-            android:layout_marginTop="202dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="542dp"
+            android:background="@drawable/button_rectangle"
             android:text="Student" />
 
     </RelativeLayout>

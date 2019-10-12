@@ -3,6 +3,8 @@ package com.spm.sejarah;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -11,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 public class notabab1 extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
+    //seekbar
+    private TextView textView;
+    private ProgressBar progressBar;
+    private SeekBar seekBar;
 
 
     @Override
@@ -23,10 +29,36 @@ public class notabab1 extends AppCompatActivity {
         textView.setText("Dynamically added TextView");
         textView.setGravity(Gravity.CENTER);
 
+
         viewFlipper.addView(textView);
 
-        viewFlipper.setFlipInterval(2000);
-        viewFlipper.startFlipping();
+       viewFlipper.setFlipInterval(2000);
+       viewFlipper.startFlipping();
+
+        //start seek bar
+       /* textView = (TextView) findViewById(R.id.textView);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
+
+        final TextView finalTextView = textView;
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressBar.setProgress(progress);
+                finalTextView.setText("" + progress + "%");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        //end seekbar */
     }
 
     public void previousView(View v) {

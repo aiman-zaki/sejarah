@@ -53,7 +53,7 @@ public class login_teacher extends AppCompatActivity
                             teacher teach = dataSnapshot.child(icteacher.getText().toString()).getValue(teacher.class);
                             if(teach.getTeachPw().equals(pwteacher.getText().toString())){
                                 Toast.makeText(login_teacher.this, "Login success", Toast.LENGTH_SHORT).show();
-                                Intent i = new Intent(login_teacher.this, menupageteacher.class);
+                                Intent i = new Intent(login_teacher.this, listkelas.class);
                                 startActivity(i);
                             }
                             else

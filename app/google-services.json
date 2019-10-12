@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "437343607916",
+    "firebase_url": "https://sejarah-e1f73.firebaseio.com",
+    "project_id": "sejarah-e1f73",
+    "storage_bucket": "sejarah-e1f73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437343607916:android:3cc47d9ad80fc99fec0c49",
+        "android_client_info": {
+          "package_name": "com.spm.sejarah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437343607916-nmt2da05veta7nv3a63vkme7b5r1if6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spm.sejarah",
+            "certificate_hash": "47e2b48117cb4712dcd46b3c4c9266d01d3443e4"
+          }
+        },
+        {
+          "client_id": "437343607916-83pic0fq07681bdk4g4cub2rorpk9ho0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmznQscPchzRWOIZyfMhgpP83aJj20qaA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437343607916-83pic0fq07681bdk4g4cub2rorpk9ho0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

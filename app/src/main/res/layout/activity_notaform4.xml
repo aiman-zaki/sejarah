@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".notaform4"
+android:background="@drawable/bgmenu">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="273dp"
+            android:layout_height="180dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="80dp"
+            android:layout_marginRight="80dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo2" />
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:columnCount="1"
+        android:columnOrderPreserved="false"
+        android:rowCount="3">
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="1dp"
+            app:cardCornerRadius="50dp"
+            android:layout_margin="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D8BFD8"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/imgbab1"
+                    android:layout_width="145dp"
+                    android:layout_height="95dp"
+                    android:layout_marginTop="56dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:srcCompat="@drawable/bab1" />
+
+               <TextView
+                    android:id="@+id/btnbab1"
+                    android:layout_width="283dp"
+                    android:layout_height="106dp"
+                    android:layout_row="0"
+                    android:text="KEMUNCULAN AWAL TAMADUN MANUSIA"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.56"
+                    android:textColor="#000000"/>
+
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="1dp"
+            app:cardCornerRadius="50dp"
+            android:layout_margin="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D8BFD8"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <ImageView
+                    android:id="@+id/imgbab2"
+                    android:layout_width="145dp"
+                    android:layout_height="95dp"
+                    android:layout_marginTop="56dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:srcCompat="@drawable/bab2" />
+
+                <TextView
+                    android:id="@+id/btnbab2"
+                    android:layout_width="219dp"
+                    android:layout_height="107dp"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="75dp"
+                    android:layout_marginRight="75dp"
+                    android:text="PENINGKATAN TAMADUN"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.56"
+                    android:textColor="#000000"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="1dp"
+            app:cardCornerRadius="50dp"
+            android:layout_margin="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#D8BFD8"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+            <ImageView
+                    android:id="@+id/imgbab3"
+                    android:layout_width="145dp"
+                    android:layout_height="95dp"
+                    android:layout_marginTop="56dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                    app:srcCompat="@drawable/bab3" />
+
+                <TextView
+                    android:id="@+id/btnbab3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="2"
+                    android:layout_marginStart="75dp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="75dp"
+                    android:layout_marginRight="75dp"
+                    android:text="TAMADUN AWAL ASIA TENGGARA"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.56"
+                    android:textColor="#000000"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+</LinearLayout>
+</ScrollView>

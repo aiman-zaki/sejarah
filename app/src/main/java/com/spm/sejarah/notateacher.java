@@ -62,14 +62,13 @@ public class notateacher extends AppCompatActivity
             public void onClick(View view)
             {
 
-                if (ContextCompat.checkSelfPermission(notateacher.this,Manifest.permission.READ_EXTERNAL_STORAGE)) == PackageManager.PERMISSION_GRANTED)
-                {
+                if(ContextCompat.checkSelfPermission(notateacher.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
                     selectPdf();
-
                 }
+
                 else
                 {
-                   ActivityCompat.requestPermissions(notateacher.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},int requestCode 9);
+                   ActivityCompat.requestPermissions(notateacher.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},9);
                 }
             }
        });
@@ -98,7 +97,7 @@ public class notateacher extends AppCompatActivity
         final String fileName=System.currentTimeMillis()+"";
         StorageReference reference = storage.getReference(); //return root path
 
-        StorageReference.child("Uploads").child(fileName).putFile(pdfUri)
+        reference.child("Uploads").child(fileName).putFile(pdfUri)
             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -157,10 +156,10 @@ public class notateacher extends AppCompatActivity
             //to offer user to select a file using file manager (intent)
 
             Intent intent = new Intent();
-            Intent.setType("application/pdf");
-            Intent.setAction(Intent.ACTION_GET_CONTENT); //to fetch files
-            int requestCode;
-            startActivityForResult(intent, requestCode 86);
+            intent.setType("application/pdf");
+            intent.setAction(Intent.ACTION_GET_CONTENT); //to fetch files
+            int requestCode = 86;
+            startActivityForResult(intent,requestCode);
 
         }
 

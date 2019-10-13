@@ -8,7 +8,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class menupage extends AppCompatActivity {
-    private TextView f;
+    private TextView f,notatambahan;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,13 @@ public class menupage extends AppCompatActivity {
                 startActivity(i); }
         });
 
+        notatambahan= (TextView) findViewById(R.id.btnaddnota);
+        notatambahan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(menupage.this,notaTambahan.class);
+                startActivity(i); }
+        });
 
 
 

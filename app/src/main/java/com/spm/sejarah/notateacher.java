@@ -8,18 +8,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.auth.api.signin.internal.Storage;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -94,10 +91,12 @@ public class notateacher extends AppCompatActivity
         progressDialog.show();
 
 
-        final String fileName=System.currentTimeMillis()+"";
+        final String fileName=System.currentTimeMillis()+".pdf";
+        final String filename1 = System.currentTimeMillis()+"";
+
         StorageReference reference = storage.getReference(); //return root path
 
-        reference.child("Uploads").child(fileName).putFile(pdfUri)
+        reference.child("Uploads").child(filename1).putFile(pdfUri)
             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

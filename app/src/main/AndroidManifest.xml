@@ -25,9 +25,11 @@
         <activity android:name=".menupageadmin" />
         <activity android:name=".menupageteacher" />
         <activity android:name=".menupage" />
-        <activity
+        <activity android:name=".MyReclycerViewActivity" />
+
+       <!-- <activity
             android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login" /> -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

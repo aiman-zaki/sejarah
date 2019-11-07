@@ -1,17 +1,6 @@
 package com.spm.sejarah;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import java.util.ArrayList;
+/*
 
 public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
@@ -34,7 +23,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.ViewHolder> {
         this.items = items;
         this.urls = urls;
     }
-
+/*
     @Override
     //to create views for recycler view item
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -69,7 +58,7 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.ViewHolder> {
         //itemview represents indiv list item
         public ViewHolder(View itemView) {
             super(itemView);
-            nameOfFile=itemView.findViewById(R.id.nameofFile);
+           // nameOfFile=itemView.findViewById(R.id.nameofFile);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -89,4 +78,4 @@ public class MyAdapter extends  RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
 
-}
+} */

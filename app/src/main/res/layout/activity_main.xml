@@ -56,9 +56,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="214dp"
-            android:layout_marginLeft="214dp"
-            android:layout_marginTop="546dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginLeft="236dp"
+            android:layout_marginTop="543dp"
             android:background="@drawable/button_rectangle"
             android:text="Teacher" />
 
@@ -69,9 +69,9 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="542dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="553dp"
             android:background="@drawable/button_rectangle"
             android:text="Student" />
 

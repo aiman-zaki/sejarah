@@ -2,28 +2,17 @@ package com.spm.sejarah;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class MyReclycerViewActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
+    //RecyclerView recyclerView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.recylcler_view);
+      /*  setContentView(R.layout.recylcler_view);
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -70,6 +59,6 @@ public class MyReclycerViewActivity extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
     }
 
-}
-
+} */
+    }}
 

@@ -1,57 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".notateacher"
     android:background="@drawable/bgmenu">
 
-    <Button
-        android:id="@+id/btnSelectFile"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="329dp"
-        android:layout_marginLeft="329dp"
-        android:layout_marginTop="188dp"
-        android:background="@drawable/button_rectangle"
-        android:text="Add file"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/notification"
-        android:layout_width="310dp"
-        android:layout_height="38dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="184dp"
-        android:background="#fff"
-        android:text="No file is selected"
+        android:id="@+id/txtUploadImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="EXTRA NOTES"
         android:textAlignment="center"
-        android:textColor="#000"
-        android:textSize="15sp"/>
+        android:textAllCaps="true"
+        android:textColor="#fff"
+        android:textSize="24sp" />
+
+
+    <ImageView
+        android:id="@+id/imgPreview"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/txtUploadImage"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/icon_filepreview" />
+
+    <ProgressBar
+        android:id="@+id/uploadProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgPreview" />
 
     <Button
-        android:id="@+id/btnUpload"
-        android:layout_width="147dp"
-        android:layout_height="65dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="564dp"
-        android:background="@drawable/button_rectangle"
-        android:text="Upload"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        android:id="@+id/chooseImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uploadProgress"
+        android:layout_marginTop="40px"
+        android:drawableLeft="@drawable/icon_file"
+        android:text="Chooese File to Upload"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/imgDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chooseImage"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Enter File Description Here"
+        android:textColorHint="#fff"/>
+
+    <Button
+        android:id="@+id/btnUploadImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:drawableLeft="@drawable/icon_fileattach"
+        android:text="Upload File"
+        android:textSize="18sp"
+        android:layout_below="@id/imgDescription"/>
+
+    <Button
+        android:id="@+id/viewPDF"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_below="@id/imgDescription"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="61dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="11dp"
+        android:text="View Uploaded File"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        android:onClick="btn_action"/>
 
 </RelativeLayout>
+</ScrollView>
+
+
+<!--
+RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".notateacher"
+        android:background="@drawable/bgmenu">
+
+        <Button
+            android:id="@+id/btnSelectFile"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="329dp"
+            android:layout_marginLeft="329dp"
+            android:layout_marginTop="188dp"
+            android:background="@drawable/button_rectangle"
+            android:text="Add file"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/notification"
+            android:layout_width="310dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="184dp"
+            android:background="#fff"
+            android:text="No file is selected"
+            android:textAlignment="center"
+            android:textColor="#000"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="147dp"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="112dp"
+            android:layout_marginLeft="112dp"
+            android:layout_marginTop="564dp"
+            android:background="@drawable/button_rectangle"
+            android:text="Upload"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+</RelativeLayout> -->
+
+

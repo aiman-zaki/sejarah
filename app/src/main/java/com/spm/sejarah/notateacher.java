@@ -1,184 +1,182 @@
 package com.spm.sejarah;
 
-import android.Manifest;
-import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
-public class notateacher extends AppCompatActivity
-{
+public class notateacher extends AppCompatActivity {
 
-        Button btnSelectFile,btnUpload;
-        TextView notification;
-        Uri pdfUri; //URLS that are meant for local storage
+    private static final int CHOOSE_FILE = 1;
+
+    private Button btnSelectFile;
+
+    private Button chooseImage, btnUploadImage;
+    private TextView viewPDF;
+    private ImageView imgPreview;
+    private EditText imgDescription;
+    private ProgressBar uploadProgress;
+
+    private Uri imgUrl;
+
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+
+    private StorageTask mUploadTask;
 
 
-        FirebaseStorage storage;
-        FirebaseDatabase database;
-        ProgressDialog progressDialog;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notateacher);
 
-        storage = FirebaseStorage.getInstance(); //return and object of firebase storage
-        database = FirebaseDatabase.getInstance(); // return an object of firebase database
+        uploadProgress = findViewById(R.id.uploadProgress);
+        chooseImage = findViewById(R.id.chooseImage);
+        btnUploadImage = findViewById(R.id.btnUploadImage);
 
-        btnSelectFile = (Button) findViewById(R.id.btnSelectFile);
-        btnUpload = (Button) findViewById(R.id.btnUpload);
-        notification = (TextView) findViewById(R.id.notification);
+        viewPDF = findViewById(R.id.viewPDF);
 
-        btnSelectFile.setOnClickListener(new View.OnClickListener()
-       {
+        imgDescription = findViewById(R.id.imgDescription);
+        //imgPreview = findViewById(R.id.imgPreview);
 
-            @Override
-            public void onClick(View view)
-            {
+        mStorageRef = FirebaseStorage.getInstance().getReference("extraNotes");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("extraNotes");
 
-                if(ContextCompat.checkSelfPermission(notateacher.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-                    selectPdf();
-                }
-
-                else
-                {
-                   ActivityCompat.requestPermissions(notateacher.this, new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},9);
-                }
-            }
-       });
-
-        btnUpload.setOnClickListener(new View.OnClickListener() {
+       viewPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(notateacher.this, ViewFileActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                if (pdfUri!=null) //user has selected the file
-                uploadFile(pdfUri);
-                else
-                    Toast.makeText(notateacher.this, "Select a file",Toast.LENGTH_SHORT).show();
+        btnUploadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
+                    Toast.makeText(notateacher.this, "Upload in progress", Toast.LENGTH_LONG).show();
+                } else {
+                    uploadImage();
+                }
+            }
+        });
+
+
+        chooseImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showFileChoose();
             }
         });
     }
 
-    private void uploadFile(Uri pdfUri) {
 
-        progressDialog=new ProgressDialog(this);
-        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        progressDialog.setTitle("Uploading File");
-        progressDialog.setProgress(0);
-        progressDialog.show();
+    private void showFileChoose() {
 
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.setAction(Intent.ACTION_GET_CONTENT); //to fetch files
+        startActivityForResult(intent, CHOOSE_FILE);
+        //int requestCode = 86;
+        //startActivityForResult(intent,requestCode);
 
-        final String fileName=System.currentTimeMillis()+".pdf";
-        final String filename1 = System.currentTimeMillis()+"";
+     /*   Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);*/
 
-        StorageReference reference = storage.getReference(); //return root path
+    }
 
-        reference.child("Uploads").child(filename1).putFile(pdfUri)
-            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,@Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CHOOSE_FILE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            imgUrl = data.getData();
 
-                    String url = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();// return the url of your uploaded file
-                    //store url in realtime database
+          //  Picasso.with(this).load(imgUrl).into(imgPreview);
+        }
 
-                    DatabaseReference reference =database.getReference(); //return the path to root
+    }
 
-                    reference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+    private String getFileExtension(Uri uri) {
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
+    }
+
+    private void uploadImage() {
+        if (imgUrl != null) {
+            final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(imgUrl));
+
+            mUploadTask = fileReference.putFile(imgUrl)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    uploadProgress.setProgress(0);
+                                }
+                            }, 500);
+                            fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Upload upload = new Upload(imgDescription.getText().toString().trim(), uri.toString());
+                                    String uploadID = mDatabaseRef.push().getKey();
+                                    mDatabaseRef.child(uploadID).setValue(upload);
+                                    Toast.makeText(notateacher.this, "Upload successfully", Toast.LENGTH_LONG).show();
+                                    //imgPreview.setImageResource(R.drawable.imagepreview);
+                                    imgDescription.setText("");
+                                }
+                            });
 
-                            if (task.isSuccessful())
-                                Toast.makeText(notateacher.this,"File suscessfully uploaded",Toast.LENGTH_SHORT).show();
-                            else
-                                Toast.makeText(notateacher.this,"File not suscessfully uploaded",Toast.LENGTH_SHORT).show();
 
                         }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(notateacher.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            uploadProgress.setProgress((int) progress);
+                        }
                     });
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-                Toast.makeText(notateacher.this,"File not suscessfully uploaded",Toast.LENGTH_SHORT).show();
-
-            }
-        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-
-                //track the progress of our upload
-                int currentProgress = (int) (100*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
-                progressDialog.setProgress(currentProgress);
-
-            }
-        });
+        } else {
+            Toast.makeText(notateacher.this, "No file selected", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    public void btn_action(View view) {
 
-        if (requestCode==9 && grantResults[0] ==PackageManager.PERMISSION_GRANTED)
-        {
-         selectPdf();
-        }
-        else
-            Toast.makeText(notateacher.this, "Please provide permission", Toast.LENGTH_SHORT).show();
-    }
-
-    private void selectPdf()
-        {
-            //to offer user to select a file using file manager (intent)
-
-            Intent intent = new Intent();
-            intent.setType("application/pdf");
-            intent.setAction(Intent.ACTION_GET_CONTENT); //to fetch files
-            int requestCode = 86;
-            startActivityForResult(intent,requestCode);
-
-        }
-
- //TO CHECK SUCCESSFULLY SELECT A FILE
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        
-        super.onActivityResult(requestCode, resultCode, data);
-
-        //CHECK WHETHER USER HAS SELECTED A FILE OR NOT
-
-        if ( requestCode==86 && resultCode == RESULT_OK && data!=null )
-        {
-            pdfUri=data.getData(); // return uri of selected file
-            notification.setText("A file is selected:" + data.getData().getLastPathSegment());
-        }
-        else
-        {
-            Toast.makeText(notateacher.this, "Please select a file",Toast.LENGTH_SHORT).show();
-        }
+        startActivity(new Intent(getApplicationContext(),ViewFileActivity.class));
 
     }
 }

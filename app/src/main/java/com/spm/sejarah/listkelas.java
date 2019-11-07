@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class listkelas extends AppCompatActivity {
 
     private Button z;
+    private Button jlo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +26,13 @@ public class listkelas extends AppCompatActivity {
                 startActivity(i); }
         });
 
+
+        jlo= (Button) findViewById(R.id.btnkelasb);
+        jlo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(listkelas.this,studentList.class);
+                startActivity(i); }
+        });
     }
 }

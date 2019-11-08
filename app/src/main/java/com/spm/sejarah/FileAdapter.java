@@ -36,13 +36,15 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ImageViewHolde
   @Override
     public void onBindViewHolder(@NonNull ImageViewHolder imageViewHolder, int i) {
         Upload uploadCur=mUploads.get(i);
-        imageViewHolder.img_description.setText(uploadCur.getImgName());
+        /*imageViewHolder.img_description.setText(uploadCur.getImgName());
         Picasso.get()
                 .load(uploadCur.getImgUrl())
                 //.placeholder(R.drawable.imagepreview)
                 .fit()
                 .centerCrop()
                 .into(imageViewHolder.image_view);
+
+         */
 
     }
 

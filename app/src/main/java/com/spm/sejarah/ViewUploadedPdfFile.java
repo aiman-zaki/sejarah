@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -51,12 +52,29 @@ public class ViewUploadedPdfFile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        
     }
 
     private void viewAllFile() {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("extraNotes");
         databaseReference.addValueEventListener(new ValueEventListener() {
+           /* @Override
+            public View getView(int position,View convertView, ViewGroup parent);
+            {
+                View view = super.getView(position,convertView,parent);
+
+                TextView myText =(TextView) view.findViewById(android.R.id.text1);
+                myText.setTextColor(Color.BLACK);
+
+                //return super.getView(position,convertView,parent);
+
+                return view;
+
+            };
+            pdflistview.setAdapter(adapter);
+*/
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -71,33 +89,23 @@ public class ViewUploadedPdfFile extends AppCompatActivity {
                     uploads[i] = uploadPDFS.get(i).getFileName();
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads)
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads);
 
-               @Override
-                public View getView(int position,View convertView, ViewGroup parent);
-                {
-                    View view = super.getView(position,convertView,parent);
 
-                    TextView myText =(TextView) view.findViewById(android.R.id.text1);
-                    myText.setTextColor(Color.BLACK);
+            }
 
-                    //return super.getView(position,convertView,parent);
 
-                    return view;
 
-                };
-                pdflistview.setAdapter(adapter);
-
-                }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError)
             {
 
-            };
+            }
 
 
-        }
+        });
+    }
 
 
 }

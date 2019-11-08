@@ -27,7 +27,7 @@ public class studentList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_list);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("class");
+        mDatabase = (DatabaseReference) FirebaseDatabase.getInstance().getReference().child("kelas").child("teachId").equalTo("A");
         spinner = (Spinner)findViewById(R.id.spinner);
 
         Query query = mDatabase.orderByChild("kelasId");
@@ -36,8 +36,8 @@ public class studentList extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 final List<String> titleList = new ArrayList<String>();
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    String titlename = dataSnapshot1.child("kelasId").getValue(String.class);
-                    titleList.add(titlename);
+                    listKelas listKelas = dataSnapshot1.child("kelasId").getValue(listKelas.class);
+                   // listKelas.add("");
                 }
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(studentList.this, android.R.layout.simple_spinner_item, titleList);
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

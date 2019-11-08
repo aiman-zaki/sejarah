@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -27,7 +26,7 @@ public class ViewUploadedPdfFile extends AppCompatActivity {
     ListView pdflistview;
     DatabaseReference databaseReference;
 
-   List<uploadPDF> uploadPDFS;
+   List<Upload> uploadPDFS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +41,14 @@ public class ViewUploadedPdfFile extends AppCompatActivity {
 
         pdflistview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                uploadPDF uploadPDF =uploadPDFS.get(i);
+                Upload Upload =uploadPDFS.get(position);
+
                 Intent intent = new Intent();
                 intent.setType(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(uploadPDF.getImgUrl()));
+                intent.setData(Uri.parse(Upload.getFileUrl()));
+                startActivity(intent);
             }
         });
     }
@@ -59,41 +60,44 @@ public class ViewUploadedPdfFile extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                for (DataSnapshot postSnapshot: dataSnapshot.getChildren())
-                {
-                    uploadPDF uploadPDF = postSnapshot.getValue(com.spm.sejarah.uploadPDF.class);
-                    uploadPDFS.add(uploadPDF);
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    Upload Upload = postSnapshot.getValue(com.spm.sejarah.Upload.class);
+                    uploadPDFS.add(Upload);
                 }
 
-                String[] uploads = new String [uploadPDFS.size()];
+                String[] uploads = new String[uploadPDFS.size()];
 
-                for (int i=0;i<uploads.length;i++)
-                {
-                    uploads[i]=uploadPDFS.get(i).getImgName();
+                for (int i = 0; i < uploads.length; i++) {
+                    uploads[i] = uploadPDFS.get(i).getFileName();
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,uploads)
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, uploads)
 
-                @Override
-                public View getView(int i,View convertView, ViewGroup parent);
+               @Override
+                public View getView(int position,View convertView, ViewGroup parent);
                 {
-                    View view = super.getView(i,convertView,parent);
+                    View view = super.getView(position,convertView,parent);
 
                     TextView myText =(TextView) view.findViewById(android.R.id.text1);
                     myText.setTextColor(Color.BLACK);
 
-                    //return super.getView(i,convertView,parent);
-                    //return view;
+                    //return super.getView(position,convertView,parent);
+
+                    return view;
+
                 };
-
-
                 pdflistview.setAdapter(adapter);
-            }
+
+                }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError)
+            {
 
-            }
-        });
-    }
+            };
+
+
+        }
+
+
 }

@@ -12,7 +12,7 @@
         android:id="@+id/txtsp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Spinner"
+        android:text="Senarai Kelas"
         android:textSize="20sp"
         android:layout_above="@id/spinner"
         android:gravity="center_horizontal"

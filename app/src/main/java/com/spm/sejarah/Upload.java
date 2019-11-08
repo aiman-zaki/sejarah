@@ -17,19 +17,17 @@ public class Upload {
         this.fileUrl = fileUrl;
     }
 
-    public String getImgName() {
+    public String getFileName() {
         return fileName;
     }
 
-    public void setImgName(String imgName) {
+    public void setFileUrl (String imgName) {
         this.fileName = imgName;
     }
 
-    public String getImgUrl() {
-        return fileUrl;
-    }
+    public String getFileUrl() { return fileUrl; }
 
-    public void setImgUrl(String imgUrl) {
+    public void setfileUrl(String imgUrl) {
         this.fileUrl = imgUrl;
     }
 }

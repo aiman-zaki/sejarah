@@ -21,10 +21,8 @@
         <activity android:name=".notabab1" />
         <activity android:name=".login_teacher" />
         <activity android:name=".login_student" />
-        <activity android:name=".listkelas" />
         <activity android:name=".cartajuara" />
         <activity android:name=".notaform4" />
-        <activity android:name=".menupageadmin" />
         <activity android:name=".menupageteacher" />
         <activity android:name=".menupage" />
         <activity android:name=".MyReclycerViewActivity" />

@@ -64,28 +64,29 @@
         android:id="@+id/btnUploadImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/imgDescription"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="53dp"
         android:drawableLeft="@drawable/icon_fileattach"
         android:text="Upload File"
-        android:textSize="18sp"
-        android:layout_below="@id/imgDescription"/>
+        android:textSize="18sp"/>
 
     <Button
         android:id="@+id/viewPDF"
         android:layout_width="wrap_content"
         android:layout_height="38dp"
-        android:layout_below="@id/imgDescription"
+        android:layout_below="@id/btnUploadImage"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="61dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="11dp"
         android:text="View Uploaded File"
-        android:textColor="#fff"
         android:textSize="20sp"
-        android:onClick="btn_action"/>
+        android:onClick="btn_action"
+        tools:ignore="UnknownId" />
 
 </RelativeLayout>
 </ScrollView>

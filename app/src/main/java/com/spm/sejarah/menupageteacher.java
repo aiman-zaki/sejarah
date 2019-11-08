@@ -9,13 +9,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class menupageteacher extends AppCompatActivity {
 
-    private TextView y;
+    private TextView x,y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menupageteacher);
 
+
+        x= (TextView) findViewById(R.id.btnStudentList);
+        x.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(menupageteacher.this,studentList.class);
+                startActivity(i); }
+        });
 
 
         y= (TextView) findViewById(R.id.btnnotat);
@@ -25,6 +33,7 @@ public class menupageteacher extends AppCompatActivity {
                 Intent i = new Intent(menupageteacher.this,notateacher.class);
                 startActivity(i); }
         });
+
 
     }
 }

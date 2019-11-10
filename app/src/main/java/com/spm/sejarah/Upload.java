@@ -21,9 +21,10 @@ public class Upload {
         return fileName;
     }
 
-    public void setFileUrl (String imgName) {
+    public void setFileName (String imgName) {
         this.fileName = imgName;
     }
+
 
     public String getFileUrl() { return fileUrl; }
 
